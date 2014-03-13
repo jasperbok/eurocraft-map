@@ -1,7 +1,21 @@
+body {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
 #wrapper {
     position: relative;
 }
 
 #map {
     position: relative;
+}
+
+.marker {
+    border-radius: 100px;
+    background-color: #000;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
 }

@@ -46,6 +46,12 @@ function calculateScale(dimensions) {
     return scaleX > scaleY ? scaleY : scaleX;
 };
 
+function showTooltip(e) {
+    var label = $(e.currentTarget).attr('data-label');
+
+    alert(label);
+}
+
 $(document).ready(function initPage() {
     // Default locations:
     var locations = [
@@ -88,8 +94,10 @@ $(document).ready(function initPage() {
         var posX = (location[0] - dimensions.minX) * scale,
             posY = (location[1] - dimensions.minY) * scale,
             label = location[2],
-            el = '<div class="marker" style="position:absolute;top:'+posY+'px;left:'+posX+'px">'+label+'</div>';
+            el = '<div class="marker" style="top:'+posY+'px;left:'+posX+'px" data-label="'+label+'"></div>';
 
         $('#map').append(el);
     });
+
+    $('.marker').on('mouseenter', showTooltip);
 });
