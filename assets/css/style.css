@@ -1,6 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+English+SC);
+
 body {
     background: url(../img/old_map.png) repeat;
-    font-family: sans-serif;
+    font-family: 'IM Fell English SC', serif;
     font-size: 12px;
 }
 
@@ -19,4 +21,9 @@ body {
     width: 10px;
     height: 10px;
     overflow: hidden;
+}
+
+.marker:hover {
+    background-color: #f00;
+    z-index: 100;
 }
