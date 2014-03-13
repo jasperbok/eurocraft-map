@@ -50,12 +50,15 @@ function showTooltip(e) {
     var label = $(e.currentTarget).attr('data-label');
 
     console.log(label);
+    $('#label').text(label);
 }
 
 $(document).ready(function initPage() {
     // Default locations:
     var locations = [
         {name: 'Spawn', type: 'special', x: -320, y: 1131},
+
+        // Buildzones
         {name: 'Buildzone 1', type: 'buildzone', x: 540, y: 1156},
         {name: 'Buildzone 2', type: 'buildzone', x: 446, y: -647},
         {name: 'Buildzone 3', type: 'buildzone', x: 4001, y: 1384},
@@ -66,13 +69,15 @@ $(document).ready(function initPage() {
         {name: 'Buildzone 8', type: 'buildzone', x: 4832, y: 14265},
         {name: 'Buildzone 9', type: 'buildzone', x: -907, y: 13774},
         {name: 'Buildzone 10', type: 'buildzone', x: -9858, y: -15051},
-        {name: 'Buildzone 11', type: 'buildzone', x: 13089, y: -11226}
-        
-        // [12576, -21484, 'Clayton'],
-        // [2993, 13945, 'Prime Empire'],
-        // [7530, 10881, 'Lustarvia'],
-        // [-227, -711, 'Dawnfall'],
-        // [4724, 8500, 'Coldwood'],
+        {name: 'Buildzone 11', type: 'buildzone', x: 13089, y: -11226},
+
+        // Cities
+        {name: 'Clayton', type: 'city', x: 12576, y: -21484},
+        {name: 'Prime Empire', type: 'city', x: 2993, y: 13945},
+        {name: 'Lustarvia', type: 'city', x: 7530, y: 10881},
+        {name: 'Dawnfall', type: 'city', x: -227, y: -711},
+        {name: 'Coldwood', type: 'city', x: 4724, y: 8500}
+
         // [3992, -808, 'Flappy Ville'],
         // [123, 563, 'Treasure Town'],
         // [3871, -812, 'Waffle Ville'],
@@ -95,7 +100,7 @@ $(document).ready(function initPage() {
         var posX = (location.x - dimensions.minX) * scale,
             posY = (location.y - dimensions.minY) * scale,
             label = location.name,
-            el = '<div class="marker" style="top:'+posY+'px;left:'+posX+'px" data-label="'+label+'"></div>';
+            el = '<div class="marker '+location.type+'" style="top:'+posY+'px;left:'+posX+'px" data-label="'+label+'"></div>';
 
         $('#map').append(el);
     });
