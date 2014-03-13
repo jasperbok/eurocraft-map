@@ -49,7 +49,7 @@ function calculateScale(dimensions) {
 function showTooltip(e) {
     var label = $(e.currentTarget).attr('data-label');
 
-    alert(label);
+    console.log(label);
 }
 
 $(document).ready(function initPage() {
