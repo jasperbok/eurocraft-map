@@ -9,12 +9,28 @@
         <div id="wrapper">
             <h1>EuroCraft Server</h1>
             <h2 id="label"></h2>
+
+            <form id="add-location-form">
+                <h2>Add a location</h2>
+                <input type="text" id="name" placeholder="Name">
+                <select id="type">
+                    <option value="city">City</option>
+                    <option value="buildzone">Buildzone</option>
+                    <option value="home">Home</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" id="x" placeholder="X">
+                <input type="text" id="y" placeholder="Z">
+                <button type="submit">Save</button>
+            </form>
+
             <div id="map">
             </div>
         </div>
 
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jStorage/0.4.4/jstorage.min.js"></script>
         <script src="assets/js/mapper.js"></script>
     </body>
 </html>
