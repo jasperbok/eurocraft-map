@@ -135,7 +135,7 @@ function drawMap() {
     var dimensions = calculateDimensions(locations);
     var scale = calculateScale(dimensions);
 
-    console.log(locations);
+    emptyMap();
 
     $('#map').height($(window).height());
     $('#map').width($(window).width());
@@ -156,6 +156,10 @@ function drawMap() {
     $('.marker').on('mouseleave', hideTooltip);
 };
 
+function emptyMap() {
+    $('#map .marker').remove();
+}
+
 function showTooltip(e) {
     var label = $(e.currentTarget).attr('data-label');
     var targetLocation = $(e.currentTarget).offset();
@@ -171,4 +175,5 @@ $(document).ready(function initPage() {
     drawMap();
 
     $('#add-location-form').on('submit', addLocation);
+    $(window).on('resize', drawMap);
 });
