@@ -48,10 +48,14 @@ function calculateScale(dimensions) {
 
 function showTooltip(e) {
     var label = $(e.currentTarget).attr('data-label');
+    var targetLocation = $(e.currentTarget).offset();
 
-    console.log(label);
-    $('#label').text(label);
-}
+    $('#label').text(label).show().css({left: targetLocation.left, top: targetLocation.top - 50});
+};
+
+function hideTooltip(e) {
+    $('#label').hide();
+};
 
 $(document).ready(function initPage() {
     // Default locations:
@@ -106,4 +110,5 @@ $(document).ready(function initPage() {
     });
 
     $('.marker').on('mouseenter', showTooltip);
+    $('.marker').on('mouseleave', hideTooltip);
 });
